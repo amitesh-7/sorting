@@ -1,37 +1,36 @@
 #include <stdio.h>
 
-int main(){
-    int i, key, n, a, b, c, count;
+int main()
+{
+    int i, key, n, a, b, c, count = 0;
     printf("Enter the numbers to be present in array .\n");
     scanf("%d", &n);
     printf("Enter the elements of array in ascending order :\n");
     int arr[n];
-    for ( i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
     }
-    a=0;
-    b=n-1;
+    a = 0;
+    b = n - 1;
     printf("Enter the number to be found :-\n");
     scanf("%d", &key);
-    for ( i = 0; i < n; i++)
+    for (; i < n;)
     {
-        c=(a+b)/2;
-        if (key==arr[c])
+        c = (a + b) / 2;
+        if (key == arr[c])
         {
-            count++;
+            count = 1;
+            break;
         }
-        if (key<arr[c])
+        else if (key < arr[c])
         {
-            b=n-1/2;
-            a=0;
+            b = c - 1;
         }
-        if (key>arr[c])
+        else if (key > arr[c])
         {
-            a=n-1/2;
-            b=n-1;
+            a = c + 1;
         }
-        i++;
     }
     if (count)
     {
@@ -40,8 +39,6 @@ int main(){
     else
     {
         printf("The number is not found .\n");
-        
     }
-     
     return 0;
 }
